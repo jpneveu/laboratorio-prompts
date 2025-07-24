@@ -23,7 +23,7 @@ export default async function handler(request, response) {
   }
 
   // --- FINAL FIX: Updated model name to gemini-1.5-flash-latest ---
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
   try {
     // 4. Make the server-to-server call to the Gemini API
