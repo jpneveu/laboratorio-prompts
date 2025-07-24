@@ -22,8 +22,8 @@ export default async function handler(request, response) {
       return response.status(500).json({ error: 'API key not configured on the server.' });
   }
 
-  // --- FIX: Updated model name from gemini-pro to gemini-1.0-pro ---
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.0-pro:generateContent?key=${apiKey}`;
+  // --- FINAL FIX: Updated model name to gemini-1.5-flash-latest ---
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
 
   try {
     // 4. Make the server-to-server call to the Gemini API
