@@ -1,10 +1,9 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio de Prompts v2: Comunicador Estratégico</title>
+    <title>Laboratorio de Prompts v4: Adaptador Contextual</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -22,27 +21,27 @@
         .prose-custom { white-space: pre-wrap; }
     </style>
 </head>
-<body class="bg-gray-50 text-gray-800">
+<body class="bg-gray-100 text-gray-800">
 
     <div class="container mx-auto p-4 md:p-8">
         <!-- Header -->
         <header class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-gray-900">Laboratorio de Prompts: Comunicador Estratégico</h1>
-            <p class="mt-2 text-lg text-gray-600">Diseña un hilo para redes sociales combinando componentes estratégicos.</p>
+            <h1 class="text-4xl font-bold text-gray-900">Laboratorio de Prompts: Adaptador Contextual</h1>
+            <p class="mt-2 text-lg text-gray-600">Genera comunicaciones con identidad local y relevancia cultural.</p>
             <p class="text-sm text-gray-500 mt-1">Una demo por Juan Pablo Neveu</p>
         </header>
 
-        <!-- Main Content Grid -->
-        <main class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <!-- Controls Section -->
+        <section class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 mb-8">
+            <h2 class="text-2xl font-bold mb-6 text-center">1. Configure las Estrategias</h2>
             
-            <!-- Left Column: Controls -->
-            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                <h2 class="text-2xl font-bold mb-6">1. Diseñe su Comunicación</h2>
-
-                <div class="space-y-6">
+            <!-- Global Controls -->
+            <div class="mb-8 border-b pb-6">
+                <h3 class="text-xl font-semibold mb-4 text-gray-800">Controles Globales</h3>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                     <div>
                         <label for="anuncio" class="block text-sm font-medium text-gray-700">## Anuncio Central</label>
-                        <input type="text" id="anuncio" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ej: Lanzamiento de un nuevo curso sobre IA...">
+                        <input type="text" id="anuncio" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ej: Nuevo curso de IA para el agro...">
                     </div>
                     <div>
                         <label for="plataforma" class="block text-sm font-medium text-gray-700"># Plataforma Social</label>
@@ -51,143 +50,252 @@
                             <option value="El hilo debe ser optimizado para Twitter/X, con un tono conciso, impactante y usando emojis relevantes.">Twitter/X</option>
                         </select>
                     </div>
+                </div>
+                <!-- NEW CONTEXT CONTROLS -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                     <div>
-                        <label for="audiencia" class="block text-sm font-medium text-gray-700">### Audiencia Objetivo</label>
-                        <select id="audiencia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                            <option value="La audiencia principal son docentes y directivos de instituciones educativas.">Docentes y Directivos</option>
-                            <option value="La audiencia principal son emprendedores y líderes de PyMEs.">Emprendedores y PyMEs</option>
-                            <option value="La audiencia principal son estudiantes universitarios de carreras tecnológicas.">Estudiantes Universitarios</option>
+                        <label for="contexto-geo" class="block text-sm font-medium text-gray-700">Contexto Geográfico</label>
+                        <select id="contexto-geo" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="El contenido debe ser global y culturalmente neutro.">Global / Neutro</option>
+                            <option value="Adapta el contenido al contexto de Argentina.">Argentina</option>
+                            <option value="Adapta el contenido específicamente al contexto de la provincia de La Pampa, Argentina.">Provincia de La Pampa</option>
                         </select>
                     </div>
                     <div>
-                        <label for="voz" class="block text-sm font-medium text-gray-700">#### Voz de la Marca/Institución</label>
-                        <select id="voz" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                        <label for="registro-ling" class="block text-sm font-medium text-gray-700">Registro Lingüístico</label>
+                        <select id="registro-ling" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="Utiliza un español neutro y universal.">Español Neutro</option>
+                            <option value="Utiliza el voseo y modismos del español rioplatense de forma natural y coloquial.">Español Rioplatense (vos)</option>
+                            <option value="Utiliza un español rioplatense formal, respetando el voseo pero evitando modismos excesivos.">Español Rioplatense (formal)</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label for="ref-cultural" class="block text-sm font-medium text-gray-700">Referencia Cultural</label>
+                        <select id="ref-cultural" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="">Sin referencia cultural específica.</option>
+                            <option value="Si es pertinente y natural, incluye una referencia cultural o un ejemplo sutil relacionado con el contexto geográfico seleccionado.">Incluir guiño local sutil</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <!-- A/B Controls -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Strategy A -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-indigo-600">Estrategia A</h3>
+                    <div>
+                        <label for="voz-a" class="block text-sm font-medium text-gray-700">Voz de la Marca</label>
+                        <select id="voz-a" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                             <option value="Utiliza una voz académica, formal y rigurosa.">Académica y Rigurosa</option>
                             <option value="Utiliza una voz innovadora, energética y disruptiva.">Innovadora y Disruptiva</option>
                             <option value="Utiliza una voz cercana, comunitaria y colaborativa.">Cercana y Comunitaria</option>
                         </select>
                     </div>
                     <div>
-                        <label for="cta" class="block text-sm font-medium text-gray-700">##### Llamado a la Acción (CTA)</label>
-                        <select id="cta" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                        <label for="cta-a" class="block text-sm font-medium text-gray-700">Llamado a la Acción (CTA)</label>
+                        <select id="cta-a" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
                             <option value="El hilo debe concluir con un llamado a la acción claro para que se registren en un formulario.">Invitar a un Registro</option>
-                            <option value="El hilo debe concluir con un llamado a la acción que genere debate, haciendo una pregunta abierta a la audiencia.">Generar Debate</option>
-                            <option value="El hilo debe concluir con un llamado a la acción que dirija a los lectores a un artículo de blog para obtener más información.">Dirigir a un Artículo</option>
+                            <option value="El hilo debe concluir con un llamado a la acción que genere debate, haciendo una pregunta abierta.">Generar Debate</option>
+                        </select>
+                    </div>
+                </div>
+                <!-- Strategy B -->
+                <div class="space-y-6">
+                    <h3 class="text-xl font-semibold text-teal-600">Estrategia B</h3>
+                    <div>
+                        <label for="voz-b" class="block text-sm font-medium text-gray-700">Voz de la Marca</label>
+                        <select id="voz-b" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md">
+                            <option value="Utiliza una voz innovadora, energética y disruptiva.">Innovadora y Disruptiva</option>
+                            <option value="Utiliza una voz académica, formal y rigurosa.">Académica y Rigurosa</option>
+                            <option value="Utiliza una voz cercana, comunitaria y colaborativa.">Cercana y Comunitaria</option>
+                        </select>
+                    </div>
+                     <div>
+                        <label for="cta-b" class="block text-sm font-medium text-gray-700">Llamado a la Acción (CTA)</label>
+                        <select id="cta-b" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-teal-500 focus:border-teal-500 sm:text-sm rounded-md">
+                            <option value="El hilo debe concluir con un llamado a la acción que genere debate, haciendo una pregunta abierta.">Generar Debate</option>
+                            <option value="El hilo debe concluir con un llamado a la acción claro para que se registren en un formulario.">Invitar a un Registro</option>
                         </select>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <!-- Right Column: Results -->
-            <div class="space-y-8">
-                <!-- Constructed Prompt -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <h2 class="text-2xl font-bold mb-4">2. Prompt Construido</h2>
-                    <div class="bg-gray-900 text-white p-4 rounded-lg">
-                        <pre class="code text-sm whitespace-pre-wrap"><code id="prompt-output"></code></pre>
+        <!-- Generate Button -->
+        <div class="text-center mb-8">
+            <button id="generate-btn" class="w-full md:w-1/2 flex justify-center items-center mx-auto px-6 py-4 border border-transparent text-lg font-medium rounded-lg text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200">
+                <span id="btn-text">Comparar Estrategias</span>
+                <svg id="loader" class="animate-spin -ml-1 mr-3 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                </svg>
+            </button>
+        </div>
+        
+        <!-- Results Section -->
+        <section id="results-section" class="grid grid-cols-1 md:grid-cols-2 gap-8 hidden">
+            <!-- Column A -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 fade-in">
+                <h2 class="text-2xl font-bold mb-4 text-indigo-600">Resultado A</h2>
+                <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Prompt Construido:</h3>
+                    <div class="bg-gray-900 text-white p-3 rounded-lg text-xs">
+                        <pre class="code whitespace-pre-wrap"><code id="prompt-output-a"></code></pre>
                     </div>
                 </div>
-
-                <!-- AI Response -->
-                <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                    <div class="flex justify-between items-center mb-4">
-                        <h2 class="text-2xl font-bold">3. Respuesta de la IA</h2>
-                        <button id="generate-btn" class="flex justify-center items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 transition-all duration-200">
-                            <span id="btn-text">Generar</span>
-                            <svg id="loader" class="animate-spin ml-2 h-5 w-5 text-white hidden" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                        </button>
-                    </div>
-                    <div id="error-container" class="mt-4 p-4 bg-red-50 rounded-lg border border-red-200 text-red-700 hidden">
-                        <p id="error-message"></p>
-                    </div>
-                    <div id="result-container" class="prose max-w-none text-gray-700 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[200px] prose-custom">
-                        <!-- AI response will be injected here -->
-                    </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Respuesta de la IA:</h3>
+                    <div id="result-container-a" class="prose max-w-none text-gray-700 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[250px] prose-custom"></div>
                 </div>
             </div>
-        </main>
+            <!-- Column B -->
+            <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200 fade-in">
+                <h2 class="text-2xl font-bold mb-4 text-teal-600">Resultado B</h2>
+                 <div class="mb-4">
+                    <h3 class="text-lg font-semibold mb-2">Prompt Construido:</h3>
+                    <div class="bg-gray-900 text-white p-3 rounded-lg text-xs">
+                        <pre class="code whitespace-pre-wrap"><code id="prompt-output-b"></code></pre>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-lg font-semibold mb-2">Respuesta de la IA:</h3>
+                    <div id="result-container-b" class="prose max-w-none text-gray-700 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[250px] prose-custom"></div>
+                </div>
+            </div>
+        </section>
+        <div id="error-container" class="mt-6 p-4 bg-red-50 rounded-lg border border-red-200 text-red-700 hidden text-center">
+            <p id="error-message"></p>
+        </div>
+
     </div>
 
     <script>
         // DOM Elements
         const anuncioInput = document.getElementById('anuncio');
-        const selectors = ['plataforma', 'audiencia', 'voz', 'cta'].map(id => document.getElementById(id));
-        const promptOutput = document.getElementById('prompt-output');
+        const plataformaSelect = document.getElementById('plataforma');
+        // NEW CONTEXT SELECTORS
+        const contextoGeoSelect = document.getElementById('contexto-geo');
+        const registroLingSelect = document.getElementById('registro-ling');
+        const refCulturalSelect = document.getElementById('ref-cultural');
+
+        const vozASelect = document.getElementById('voz-a');
+        const ctaASelect = document.getElementById('cta-a');
+        const vozBSelect = document.getElementById('voz-b');
+        const ctaBSelect = document.getElementById('cta-b');
+        
+        const promptOutputA = document.getElementById('prompt-output-a');
+        const promptOutputB = document.getElementById('prompt-output-b');
+        
         const generateBtn = document.getElementById('generate-btn');
         const btnText = document.getElementById('btn-text');
         const loader = document.getElementById('loader');
-        const resultContainer = document.getElementById('result-container');
+        
+        const resultsSection = document.getElementById('results-section');
+        const resultContainerA = document.getElementById('result-container-a');
+        const resultContainerB = document.getElementById('result-container-b');
+        
         const errorContainer = document.getElementById('error-container');
         const errorMessage = document.getElementById('error-message');
 
         const baseTask = "Actúa como un experto en comunicación digital y Social Media Manager. Tu tarea es redactar un borrador de un hilo para redes sociales (una secuencia de posteos numerados) para comunicar un anuncio importante. El resultado debe ser un texto listo para copiar y pegar.";
 
-        // Function to build the prompt from selected options
-        function updateConstructedPrompt() {
-            const anuncioValue = anuncioInput.value.trim();
-            if (!anuncioValue) {
-                promptOutput.textContent = "Por favor, ingrese el anuncio central para construir el prompt.";
-                return;
-            }
-
+        // Function to build a single prompt
+        function buildPrompt(anuncio, plataforma, contextoGeo, registroLing, refCultural, voz, cta) {
+            if (!anuncio.trim()) return null;
             const parts = [
                 baseTask,
-                `El anuncio central es sobre: "${anuncioValue}"`
-            ];
-            selectors.forEach(selector => {
-                if (selector.value) {
-                    parts.push(selector.value);
-                }
-            });
-            promptOutput.textContent = parts.join('\n\n');
+                `El anuncio central es sobre: "${anuncio}"`,
+                plataforma,
+                contextoGeo,
+                registroLing,
+                refCultural,
+                voz,
+                cta
+            ].filter(Boolean); // Filter out empty strings like the optional cultural ref
+            return parts.join('\n\n');
+        }
+        
+        // Update both prompt displays
+        function updateConstructedPrompts() {
+            const anuncio = anuncioInput.value;
+            const plataforma = plataformaSelect.value;
+            const contextoGeo = contextoGeoSelect.value;
+            const registroLing = registroLingSelect.value;
+            const refCultural = refCulturalSelect.value;
+            
+            const promptA = buildPrompt(anuncio, plataforma, contextoGeo, registroLing, refCultural, vozASelect.value, ctaASelect.value);
+            promptOutputA.textContent = promptA || "Complete el anuncio central para ver el prompt.";
+            
+            const promptB = buildPrompt(anuncio, plataforma, contextoGeo, registroLing, refCultural, vozBSelect.value, ctaBSelect.value);
+            promptOutputB.textContent = promptB || "Complete el anuncio central para ver el prompt.";
         }
 
-        // Event Listeners
-        [anuncioInput, ...selectors].forEach(element => {
-            element.addEventListener('change', updateConstructedPrompt);
-            element.addEventListener('keyup', updateConstructedPrompt);
+        // Attach listeners
+        const allSelectors = [
+            anuncioInput, plataformaSelect, contextoGeoSelect, registroLingSelect, refCulturalSelect,
+            vozASelect, ctaASelect, vozBSelect, ctaBSelect
+        ];
+        allSelectors.forEach(el => {
+            el.addEventListener('change', updateConstructedPrompts);
+            el.addEventListener('keyup', updateConstructedPrompts);
         });
 
-        // Event Listener for Generate Button
+        // Generate Button Click Handler
         generateBtn.addEventListener('click', async () => {
-            if (!anuncioInput.value.trim()) {
-                showError("El campo 'Anuncio Central' no puede estar vacío.");
+            const promptA = promptOutputA.textContent;
+            const promptB = promptOutputB.textContent;
+
+            if (promptA.includes("Complete el anuncio")) {
+                showError("Por favor, complete el campo 'Anuncio Central'.");
                 return;
             }
-            const finalPrompt = promptOutput.textContent;
 
             setLoading(true);
             hideError();
-            resultContainer.innerHTML = '';
+            resultsSection.classList.remove('hidden');
+            resultContainerA.innerHTML = 'Generando...';
+            resultContainerB.innerHTML = 'Generando...';
 
-            try {
-                const response = await fetch('/api/gemini-proxy', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({ prompt: finalPrompt })
-                });
+            const fetchA = callGemini(promptA);
+            const fetchB = callGemini(promptB);
 
-                if (!response.ok) {
-                    const errorData = await response.json();
-                    throw new Error(errorData.error || 'Ocurrió un error desconocido.');
-                }
+            // Use Promise.allSettled to wait for both, even if one fails
+            const [resultA, resultB] = await Promise.allSettled([fetchA, fetchB]);
 
-                const data = await response.json();
-                const text = data.candidates[0].content.parts[0].text;
-                
-                resultContainer.innerHTML = text;
-                resultContainer.classList.add('fade-in');
-
-            } catch (error) {
-                console.error("Error:", error);
-                showError(error.message);
-            } finally {
-                setLoading(false);
+            // Handle result A
+            if (resultA.status === 'fulfilled') {
+                resultContainerA.innerHTML = resultA.value.replace(/\n/g, '<br>');
+            } else {
+                resultContainerA.innerHTML = `<span class="text-red-500">Error: ${resultA.reason.message}</span>`;
             }
+
+            // Handle result B
+            if (resultB.status === 'fulfilled') {
+                resultContainerB.innerHTML = resultB.value.replace(/\n/g, '<br>');
+            } else {
+                resultContainerB.innerHTML = `<span class="text-red-500">Error: ${resultB.reason.message}</span>`;
+            }
+
+            setLoading(false);
         });
+
+        // Reusable function to call the proxy
+        async function callGemini(prompt) {
+            const response = await fetch('/api/gemini-proxy', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ prompt })
+            });
+
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.error || 'Error en la respuesta del servidor.');
+            }
+
+            const data = await response.json();
+            return data.candidates[0].content.parts[0].text;
+        }
 
         // UI Helper Functions
         function setLoading(isLoading) {
@@ -197,9 +305,8 @@
         }
 
         function showError(message) {
-            errorMessage.textContent = `Error: ${message}`;
+            errorMessage.textContent = message;
             errorContainer.classList.remove('hidden');
-            errorContainer.classList.add('fade-in');
         }
 
         function hideError() {
@@ -207,7 +314,7 @@
         }
         
         // Initial call
-        updateConstructedPrompt();
+        updateConstructedPrompts();
     </script>
 </body>
 </html>
