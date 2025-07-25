@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Laboratorio de Prompts - por Juan Pablo Neveu</title>
+    <title>Laboratorio de Prompts v2: Comunicador Estratégico</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,7 +12,6 @@
     <style>
         body { font-family: 'Inter', sans-serif; }
         .code { font-family: 'Source Code Pro', monospace; }
-        /* Simple transition for smooth appearance */
         .fade-in {
             animation: fadeIn 0.5s ease-in-out;
         }
@@ -20,6 +19,7 @@
             from { opacity: 0; transform: translateY(10px); }
             to { opacity: 1; transform: translateY(0); }
         }
+        .prose-custom { white-space: pre-wrap; }
     </style>
 </head>
 <body class="bg-gray-50 text-gray-800">
@@ -27,8 +27,8 @@
     <div class="container mx-auto p-4 md:p-8">
         <!-- Header -->
         <header class="text-center mb-10">
-            <h1 class="text-4xl font-bold text-gray-900">Laboratorio de Prompts</h1>
-            <p class="mt-2 text-lg text-gray-600">Descubre cómo cada componente de un prompt refina la respuesta de la IA.</p>
+            <h1 class="text-4xl font-bold text-gray-900">Laboratorio de Prompts: Comunicador Estratégico</h1>
+            <p class="mt-2 text-lg text-gray-600">Diseña un hilo para redes sociales combinando componentes estratégicos.</p>
             <p class="text-sm text-gray-500 mt-1">Una demo por Juan Pablo Neveu</p>
         </header>
 
@@ -37,42 +37,42 @@
             
             <!-- Left Column: Controls -->
             <div class="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-                <h2 class="text-2xl font-bold mb-2">1. Defina la Tarea</h2>
-                <p class="mb-6 text-gray-600">El objetivo es fijo: la IA debe redactar un email profesional para solicitar una reunión.</p>
+                <h2 class="text-2xl font-bold mb-6">1. Diseñe su Comunicación</h2>
 
                 <div class="space-y-6">
                     <div>
-                        <label for="persona" class="block text-sm font-medium text-gray-700"># Persona (Quién es la IA)</label>
-                        <select id="persona" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                            <option value="">[Sin Persona Definida]</option>
-                            <option value="Actúa como un Asistente Ejecutivo Senior, muy formal y eficiente.">Asistente Ejecutivo Senior</option>
-                            <option value="Actúa como un Emprendedor amigable y directo. Tu objetivo es conectar.">Emprendedor Amistoso</option>
-                            <option value="Actúa como un Académico Investigador que busca colaborar en un proyecto.">Académico Investigador</option>
+                        <label for="anuncio" class="block text-sm font-medium text-gray-700">## Anuncio Central</label>
+                        <input type="text" id="anuncio" class="mt-1 block w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500" placeholder="Ej: Lanzamiento de un nuevo curso sobre IA...">
+                    </div>
+                    <div>
+                        <label for="plataforma" class="block text-sm font-medium text-gray-700"># Plataforma Social</label>
+                        <select id="plataforma" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="El hilo debe ser optimizado para LinkedIn, con un tono profesional y párrafos más desarrollados.">LinkedIn</option>
+                            <option value="El hilo debe ser optimizado para Twitter/X, con un tono conciso, impactante y usando emojis relevantes.">Twitter/X</option>
                         </select>
                     </div>
                     <div>
-                        <label for="contexto" class="block text-sm font-medium text-gray-700">## Contexto (Cuál es la situación)</label>
-                        <select id="contexto" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                            <option value="El email es un primer contacto en frío a un gerente importante.">Email en frío</option>
-                            <option value="El email es para hacer seguimiento a una conversación que tuvimos en un evento.">Seguimiento de evento</option>
-                            <option value="El email es para un colega de otro departamento dentro de la misma empresa.">Contacto interno</option>
+                        <label for="audiencia" class="block text-sm font-medium text-gray-700">### Audiencia Objetivo</label>
+                        <select id="audiencia" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="La audiencia principal son docentes y directivos de instituciones educativas.">Docentes y Directivos</option>
+                            <option value="La audiencia principal son emprendedores y líderes de PyMEs.">Emprendedores y PyMEs</option>
+                            <option value="La audiencia principal son estudiantes universitarios de carreras tecnológicas.">Estudiantes Universitarios</option>
                         </select>
                     </div>
                     <div>
-                        <label for="tono" class="block text-sm font-medium text-gray-700">### Tono (Cómo debe sonar)</label>
-                        <select id="tono" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                            <option value="Utiliza un tono muy formal y respetuoso.">Muy Formal y Respetuoso</option>
-                            <option value="Utiliza un tono directo, profesional y conciso.">Directo y Conciso</option>
-                            <option value="Utiliza un tono cordial y entusiasta.">Cordial y Entusiasta</option>
+                        <label for="voz" class="block text-sm font-medium text-gray-700">#### Voz de la Marca/Institución</label>
+                        <select id="voz" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="Utiliza una voz académica, formal y rigurosa.">Académica y Rigurosa</option>
+                            <option value="Utiliza una voz innovadora, energética y disruptiva.">Innovadora y Disruptiva</option>
+                            <option value="Utiliza una voz cercana, comunitaria y colaborativa.">Cercana y Comunitaria</option>
                         </select>
                     </div>
                     <div>
-                        <label for="restriccion" class="block text-sm font-medium text-gray-700">#### Restricción (Qué regla debe seguir)</label>
-                        <select id="restriccion" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
-                            <option value="">[Sin Restricción]</option>
-                            <option value="El email completo debe tener menos de 100 palabras.">Menos de 100 palabras</option>
-                            <option value="El email debe terminar con una pregunta abierta para fomentar la respuesta.">Terminar con pregunta abierta</option>
-                            <option value="El email debe mencionar un logro reciente (ficticio) del destinatario para personalizarlo.">Mencionar un logro</option>
+                        <label for="cta" class="block text-sm font-medium text-gray-700">##### Llamado a la Acción (CTA)</label>
+                        <select id="cta" class="mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm rounded-md">
+                            <option value="El hilo debe concluir con un llamado a la acción claro para que se registren en un formulario.">Invitar a un Registro</option>
+                            <option value="El hilo debe concluir con un llamado a la acción que genere debate, haciendo una pregunta abierta a la audiencia.">Generar Debate</option>
+                            <option value="El hilo debe concluir con un llamado a la acción que dirija a los lectores a un artículo de blog para obtener más información.">Dirigir a un Artículo</option>
                         </select>
                     </div>
                 </div>
@@ -103,7 +103,7 @@
                     <div id="error-container" class="mt-4 p-4 bg-red-50 rounded-lg border border-red-200 text-red-700 hidden">
                         <p id="error-message"></p>
                     </div>
-                    <div id="result-container" class="prose prose-indigo max-w-none text-gray-700 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[150px]">
+                    <div id="result-container" class="prose max-w-none text-gray-700 p-4 bg-gray-50 rounded-lg border border-gray-200 min-h-[200px] prose-custom">
                         <!-- AI response will be injected here -->
                     </div>
                 </div>
@@ -113,7 +113,8 @@
 
     <script>
         // DOM Elements
-        const selectors = ['persona', 'contexto', 'tono', 'restriccion'].map(id => document.getElementById(id));
+        const anuncioInput = document.getElementById('anuncio');
+        const selectors = ['plataforma', 'audiencia', 'voz', 'cta'].map(id => document.getElementById(id));
         const promptOutput = document.getElementById('prompt-output');
         const generateBtn = document.getElementById('generate-btn');
         const btnText = document.getElementById('btn-text');
@@ -122,11 +123,20 @@
         const errorContainer = document.getElementById('error-container');
         const errorMessage = document.getElementById('error-message');
 
-        const baseTask = "Redacta un email profesional para solicitar una reunión con un colega o cliente potencial.";
+        const baseTask = "Actúa como un experto en comunicación digital y Social Media Manager. Tu tarea es redactar un borrador de un hilo para redes sociales (una secuencia de posteos numerados) para comunicar un anuncio importante. El resultado debe ser un texto listo para copiar y pegar.";
 
         // Function to build the prompt from selected options
         function updateConstructedPrompt() {
-            const parts = [baseTask];
+            const anuncioValue = anuncioInput.value.trim();
+            if (!anuncioValue) {
+                promptOutput.textContent = "Por favor, ingrese el anuncio central para construir el prompt.";
+                return;
+            }
+
+            const parts = [
+                baseTask,
+                `El anuncio central es sobre: "${anuncioValue}"`
+            ];
             selectors.forEach(selector => {
                 if (selector.value) {
                     parts.push(selector.value);
@@ -135,18 +145,23 @@
             promptOutput.textContent = parts.join('\n\n');
         }
 
-        // Event Listeners for selectors
-        selectors.forEach(selector => {
-            selector.addEventListener('change', updateConstructedPrompt);
+        // Event Listeners
+        [anuncioInput, ...selectors].forEach(element => {
+            element.addEventListener('change', updateConstructedPrompt);
+            element.addEventListener('keyup', updateConstructedPrompt);
         });
 
         // Event Listener for Generate Button
         generateBtn.addEventListener('click', async () => {
+            if (!anuncioInput.value.trim()) {
+                showError("El campo 'Anuncio Central' no puede estar vacío.");
+                return;
+            }
             const finalPrompt = promptOutput.textContent;
 
             setLoading(true);
             hideError();
-            resultContainer.innerHTML = ''; // Clear previous result
+            resultContainer.innerHTML = '';
 
             try {
                 const response = await fetch('/api/gemini-proxy', {
@@ -163,9 +178,8 @@
                 const data = await response.json();
                 const text = data.candidates[0].content.parts[0].text;
                 
-                resultContainer.innerHTML = text.replace(/\n/g, '<br>'); // Display with line breaks
+                resultContainer.innerHTML = text;
                 resultContainer.classList.add('fade-in');
-
 
             } catch (error) {
                 console.error("Error:", error);
@@ -192,8 +206,65 @@
             errorContainer.classList.add('hidden');
         }
         
-        // Initial call to populate the prompt box
+        // Initial call
         updateConstructedPrompt();
     </script>
 </body>
 </html>
+```javascript
+// api/gemini-proxy.js
+
+// This is a Vercel Serverless Function.
+// It acts as a secure proxy to the Gemini API.
+
+export default async function handler(request, response) {
+  // 1. Only allow POST requests for security
+  if (request.method !== 'POST') {
+    return response.status(405).json({ message: 'Method Not Allowed' });
+  }
+
+  // 2. Get the user's prompt from the request body
+  const { prompt } = request.body;
+
+  if (!prompt) {
+    return response.status(400).json({ error: 'Prompt is missing.' });
+  }
+
+  // 3. Get the secret API key from Vercel's Environment Variables
+  const apiKey = process.env.GEMINI_API_KEY;
+  if (!apiKey) {
+      return response.status(500).json({ error: 'API key not configured on the server.' });
+  }
+
+  // Using the model you confirmed works well
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
+
+  try {
+    // 4. Make the server-to-server call to the Gemini API
+    const geminiResponse = await fetch(url, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        contents: [{ parts: [{ text: prompt }] }],
+      }),
+    });
+
+    // Handle potential errors from the Gemini API itself
+    if (!geminiResponse.ok) {
+      const errorText = await geminiResponse.text();
+      console.error("Gemini API Error:", errorText);
+      return response.status(geminiResponse.status).json({ error: `Gemini API error: ${errorText}` });
+    }
+
+    const data = await geminiResponse.json();
+    
+    // 5. Send the successful response back to the frontend
+    return response.status(200).json(data);
+
+  } catch (error) {
+    console.error("Internal Server Error:", error);
+    return response.status(500).json({ error: error.message });
+  }
+}
